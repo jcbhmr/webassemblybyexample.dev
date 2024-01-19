@@ -1,5 +1,7 @@
 # Fibonacci sequence in C via JavaScript
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1&devcontainer_path=.devcontainer%2Ffib-c-js%2Fdevcontainer.json)
+
 We're going to compile C to WebAssembly with minimal imports (no [WASI](https://wasi.dev/)) using Clang and then run it in your browser. How cool is that? 🤩
 
 First we need to create the `fib.c` file which will contain the code that we want to turn into WebAssembly. 🛑 Since we're using `-nostdlib` we need to make sure that the code doesn't use `#include <stdio.h>` or similar.
@@ -51,6 +53,3 @@ Now that we have our `fib.wasm` file that our C compiler gave us, we have to act
 Now we can start up an HTTP server with `python -m http.server` or your other favorite static HTTP server and see the results:
 
 ![]()
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1) \
-`cd fib-c-js && make && make preview`
