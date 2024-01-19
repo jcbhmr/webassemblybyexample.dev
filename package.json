@@ -4,9 +4,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "format": "prettier -w .",
-    "example:fib-c-js": "cd fib-c-js && make && make preview",
-    "example:fib-rs-js": "cd fib-rs-js && make && make preview"
+    "format": "prettier -w ."
   },
   "devDependencies": {
     "@types/node": "^20.11.5",

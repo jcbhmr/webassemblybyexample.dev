@@ -274,3 +274,7 @@
 .header-anchor {
   display: none;
 }
+
+.vp-doc img {
+  display: inline;
+}
