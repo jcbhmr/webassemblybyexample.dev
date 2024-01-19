@@ -44,7 +44,10 @@ export default defineConfig({
     // },
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/jcbhmr/webassemblybyexample.dev" },
+      {
+        icon: "github",
+        link: "https://github.com/jcbhmr/webassemblybyexample.dev",
+      },
     ],
 
     outline: false,
@@ -52,7 +55,8 @@ export default defineConfig({
 
     // https://vitepress.dev/reference/default-theme-edit-link
     editLink: {
-      pattern: "https://github.com/jcbhmr/webassemblybyexample.dev/edit/main/:path",
+      pattern:
+        "https://github.com/jcbhmr/webassemblybyexample.dev/edit/main/:path",
     },
 
     // https://github.com/vuejs/vitepress/issues/1037

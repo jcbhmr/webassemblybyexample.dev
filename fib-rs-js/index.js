@@ -1,5 +1,5 @@
 const { module, instance } = await WebAssembly.instantiateStreaming(
-  fetch("fib.wasm")
+  fetch("fib.wasm"),
 );
 const { fib } = instance.exports;
 
