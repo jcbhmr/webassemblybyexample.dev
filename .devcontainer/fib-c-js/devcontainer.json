@@ -1,3 +1,5 @@
 {
-    "workspaceFolder": "./fib-c-js"
+  "name": "Fibonacci sequence in C via JavaScript",
+  "workspaceFolder": "/workspaces/webassemblybyexample.dev/fib-c-js",
+  "updateContentCommand": "sudo bash -c \"$(wget -O - https://apt.llvm.org/llvm.sh)\"",
 }

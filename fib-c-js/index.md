@@ -52,4 +52,4 @@ Now that we have our `fib.wasm` file that our C compiler gave us, we have to act
 
 Now we can start up an HTTP server with `python -m http.server` or your other favorite static HTTP server and see the results:
 
-![]()
+![](https://i.imgur.com/4dQ8Zdm.png)
