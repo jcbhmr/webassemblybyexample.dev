@@ -4,7 +4,7 @@
  * @returns {void}
  */
 export function store_value_in_wasm_memory_buffer_index_zero(
-  value: number
+  value: number,
 ): void;
 /**
  * @returns {number}
@@ -24,5 +24,5 @@ export function read_wasm_memory_buffer_and_return_index_one(): number;
  * @returns {Promise<any>}
  */
 export default function init(
-  module_or_path: RequestInfo | BufferSource | WebAssembly.Module
+  module_or_path: RequestInfo | BufferSource | WebAssembly.Module,
 ): Promise<any>;

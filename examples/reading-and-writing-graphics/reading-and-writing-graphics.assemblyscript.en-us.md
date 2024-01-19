@@ -38,7 +38,7 @@ export function generateCheckerBoard(
   darkValueBlue: i32,
   lightValueRed: i32,
   lightValueGreen: i32,
-  lightValueBlue: i32
+  lightValueBlue: i32,
 ): void {
   // Since Linear memory is a 1 dimensional array, but we want a grid
   // we will be doing 2d to 1d mapping
@@ -78,15 +78,15 @@ export function generateCheckerBoard(
       // Finally store the values.
       store<u8>(
         CHECKERBOARD_BUFFER_POINTER + squareRgbaIndex + 0,
-        squareValueRed
+        squareValueRed,
       ); // Red
       store<u8>(
         CHECKERBOARD_BUFFER_POINTER + squareRgbaIndex + 1,
-        squareValueGreen
+        squareValueGreen,
       ); // Green
       store<u8>(
         CHECKERBOARD_BUFFER_POINTER + squareRgbaIndex + 2,
-        squareValueBlue
+        squareValueBlue,
       ); // Blue
       store<u8>(CHECKERBOARD_BUFFER_POINTER + squareRgbaIndex + 3, 255); // Alpha (Always opaque)
     }
@@ -119,7 +119,7 @@ const runWasm = async () => {
   const canvasContext = canvasElement.getContext("2d");
   const canvasImageData = canvasContext.createImageData(
     canvasElement.width,
-    canvasElement.height
+    canvasElement.height,
   );
 
   // Clear the canvas
@@ -143,14 +143,14 @@ const runWasm = async () => {
       getDarkValue(),
       getLightValue(),
       getLightValue(),
-      getLightValue()
+      getLightValue(),
     );
 
     // Pull out the RGBA values from Wasm memory, the we wrote to in wasm,
     // starting at the checkerboard pointer (memory array index)
     const imageDataArray = wasmByteMemoryArray.slice(
       exports.CHECKERBOARD_BUFFER_POINTER.valueOf(),
-      exports.CHECKERBOARD_BUFFER_SIZE.valueOf()
+      exports.CHECKERBOARD_BUFFER_SIZE.valueOf(),
     );
 
     // Set the values to the canvas image data

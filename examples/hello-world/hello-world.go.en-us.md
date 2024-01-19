@@ -44,7 +44,7 @@ tinygo build -o main.wasm -target wasm ./main.go
 Then, let's create an `index.html` that we can use to load our project in the browser:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -81,14 +81,14 @@ export const wasmBrowserInstantiate = async (wasmModuleUrl, importObject) => {
     // Fetch the module, and instantiate it as it is downloading
     response = await WebAssembly.instantiateStreaming(
       fetch(wasmModuleUrl),
-      importObject
+      importObject,
     );
   } else {
     // Fallback to using fetch to download the entire module
     // And then instantiate the module
     const fetchAndInstantiateTask = async () => {
-      const wasmArrayBuffer = await fetch(wasmModuleUrl).then(response =>
-        response.arrayBuffer()
+      const wasmArrayBuffer = await fetch(wasmModuleUrl).then((response) =>
+        response.arrayBuffer(),
       );
       return WebAssembly.instantiate(wasmArrayBuffer, importObject);
     };

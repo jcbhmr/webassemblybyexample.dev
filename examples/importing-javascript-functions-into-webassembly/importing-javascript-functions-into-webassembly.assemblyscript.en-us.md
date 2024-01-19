@@ -32,8 +32,8 @@ const runWasm = async () => {
   // And pass in a wasm module
   const wasmModule = await wasmBrowserInstantiate("./index.wasm", {
     index: {
-      consoleLog: value => console.log(value)
-    }
+      consoleLog: (value) => console.log(value),
+    },
   });
 };
 runWasm();

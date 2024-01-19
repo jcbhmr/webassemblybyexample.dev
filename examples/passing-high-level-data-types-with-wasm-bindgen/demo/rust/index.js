@@ -4,7 +4,7 @@
 // to facilitate handle data passing between JS and Wasm.
 import wasmInit, {
   add_wasm_by_example_to_string,
-  test
+  test,
 } from "./pkg/strings.js";
 // https://github.com/torch2424/wasm-by-example/blob/master/demo-util/
 import { domConsoleLog } from "/demo-util/domConsole.js";

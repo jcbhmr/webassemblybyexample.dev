@@ -7,5 +7,5 @@ export function generate_checker_board(
   c: number,
   d: number,
   e: number,
-  f: number
+  f: number,
 ): void;

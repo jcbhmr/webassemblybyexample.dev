@@ -1,0 +1,20 @@
+<script type="module">
+  const { instance } = await WebAssembly.instantiateStreaming(
+    fetch("hello_world.wasm"),
+  );
+  const { hello_world, memory } = instance.exports;
+
+  const utf8 = new TextDecoder();
+  const bytes = new Uint8Array(memory);
+  function liftString(ptr) {
+    let len = 0;
+    while (bytes[ptr + len] !== 0) len++;
+    const chars = bytes.subarray(ptr, len);
+    return utf8.decode(chars);
+  }
+
+  const ptr = hello_world();
+  const string = liftString(ptr);
+  console.log("Got string from WASM:", string);
+</script>
+<p>Check the DevTools console!</p>

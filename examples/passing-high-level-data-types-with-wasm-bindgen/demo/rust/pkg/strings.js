@@ -18,7 +18,7 @@ function getUint8Memory() {
 
 let passStringToWasm;
 if (typeof cachedTextEncoder.encodeInto === "function") {
-  passStringToWasm = function(arg) {
+  passStringToWasm = function (arg) {
     let size = arg.length;
     let ptr = wasm.__wbindgen_malloc(size);
     let offset = 0;
@@ -36,7 +36,7 @@ if (typeof cachedTextEncoder.encodeInto === "function") {
       ptr = wasm.__wbindgen_realloc(
         ptr,
         size,
-        (size = offset + arg.length * 3)
+        (size = offset + arg.length * 3),
       );
       const view = getUint8Memory().subarray(ptr + offset, ptr + size);
       const ret = cachedTextEncoder.encodeInto(arg, view);
@@ -47,7 +47,7 @@ if (typeof cachedTextEncoder.encodeInto === "function") {
     return ptr;
   };
 } else {
-  passStringToWasm = function(arg) {
+  passStringToWasm = function (arg) {
     let size = arg.length;
     let ptr = wasm.__wbindgen_malloc(size);
     let offset = 0;
@@ -141,22 +141,24 @@ function init(module) {
   ) {
     const response = fetch(module);
     if (typeof WebAssembly.instantiateStreaming === "function") {
-      result = WebAssembly.instantiateStreaming(response, imports).catch(e => {
-        console.warn(
-          "`WebAssembly.instantiateStreaming` failed. Assuming this is because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n",
-          e
-        );
-        return response
-          .then(r => r.arrayBuffer())
-          .then(bytes => WebAssembly.instantiate(bytes, imports));
-      });
+      result = WebAssembly.instantiateStreaming(response, imports).catch(
+        (e) => {
+          console.warn(
+            "`WebAssembly.instantiateStreaming` failed. Assuming this is because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n",
+            e,
+          );
+          return response
+            .then((r) => r.arrayBuffer())
+            .then((bytes) => WebAssembly.instantiate(bytes, imports));
+        },
+      );
     } else {
       result = response
-        .then(r => r.arrayBuffer())
-        .then(bytes => WebAssembly.instantiate(bytes, imports));
+        .then((r) => r.arrayBuffer())
+        .then((bytes) => WebAssembly.instantiate(bytes, imports));
     }
   } else {
-    result = WebAssembly.instantiate(module, imports).then(result => {
+    result = WebAssembly.instantiate(module, imports).then((result) => {
       if (result instanceof WebAssembly.Instance) {
         return { instance: result, module };
       } else {

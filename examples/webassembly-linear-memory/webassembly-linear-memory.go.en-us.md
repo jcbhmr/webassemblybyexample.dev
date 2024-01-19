@@ -102,7 +102,7 @@ const runWasm = async () => {
   // Then, let's have wasm read index one of the buffer,
   // and return the result
   console.log(
-    wasmModule.instance.exports.readWasmMemoryBufferAndReturnIndexOne()
+    wasmModule.instance.exports.readWasmMemoryBufferAndReturnIndexOne(),
   ); // Should log "15"
 
   /**

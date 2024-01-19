@@ -8,8 +8,8 @@ const runWasmAdd = async () => {
   // Instantiate our wasm module
   const wasmModule = await wasmBrowserInstantiate("./index.wasm", {
     index: {
-      consoleLog: value => domConsoleLog("Called from Wasm: " + value)
-    }
+      consoleLog: (value) => domConsoleLog("Called from Wasm: " + value),
+    },
   });
 };
 runWasmAdd();

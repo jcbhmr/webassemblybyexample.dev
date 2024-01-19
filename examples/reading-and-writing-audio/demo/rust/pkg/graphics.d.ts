@@ -21,5 +21,5 @@ export function amplify_audio(): void;
  * @returns {Promise<any>}
  */
 export default function init(
-  module_or_path: RequestInfo | BufferSource | WebAssembly.Module
+  module_or_path: RequestInfo | BufferSource | WebAssembly.Module,
 ): Promise<any>;

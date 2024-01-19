@@ -3,7 +3,7 @@ export const memory: WebAssembly.Memory;
 export function add_wasm_by_example_to_string(
   a: number,
   b: number,
-  c: number
+  c: number,
 ): void;
 export function test(a: number): void;
 export function __wbindgen_global_argument_ptr(): number;

@@ -1,65 +1,20 @@
 {
-  "name": "wasm-by-example",
-  "version": "0.2.0",
-  "description": "A website of examples in how to do common things in WebAssembly",
-  "main": "index.js",
-  "directories": {
-    "example": "examples"
-  },
+  "type": "module",
   "scripts": {
-    "dev": "npm-run-all build --parallel serve watch",
-    "build": "node build-system/build.js",
-    "serve": "serve ./dist -l 8080",
-    "watch": "watch 'npm run build' ./examples ./shell ./build-system ./demo-util --interval=1",
-    "lint": "prettier --write build-system/**/*.js shell/**/*.css shell/**/*.html examples/**/*.md examples/**/*.js examples/**/*.html examples/**/*.ts",
-    "lint:ci": "prettier --list-different build-system/**/*.js shell/**/*.css shell/**/*.html examples/**/*.md examples/**/*.js examples/**/*.html examples/**/*.ts"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "example:fib-c-js": "cd fib-c-js && make && make preview",
+    "example:fib-rs-js": "cd fib-rs-js && make && make preview"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/torch2424/wasm-by-example.git"
-  },
-  "keywords": [
-    "WebAssembly",
-    "Wasm",
-    "Examples",
-    "Example",
-    "Documentation",
-    "Demo",
-    "Learning",
-    "Tutorial"
-  ],
-  "author": "Aaron Turner",
-  "license": "Creative Commons 4.0 Attribution",
-  "bugs": {
-    "url": "https://github.com/torch2424/wasm-by-example/issues"
-  },
-  "homepage": "https://github.com/torch2424/wasm-by-example#readme",
   "devDependencies": {
-    "clean-css": "^4.2.1",
-    "cpy": "^6.0.0",
-    "get-title-markdown": "^2.0.1",
-    "highlight.js": "^10.4.1",
-    "husky": "^2.3.0",
-    "marked": "^0.8.0",
-    "mkdirp": "^0.5.1",
-    "mustache": "^3.0.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "1.17.1",
-    "pretty-quick": "^1.11.0",
-    "recursive-copy": "^2.0.10",
-    "recursive-readdir": "^2.2.2",
-    "serve": "^11.3.0",
-    "terser": "^4.8.1",
-    "watch": "^0.13.0",
-    "workbox-build": "^5.1.2"
-  },
-  "dependencies": {
-    "normalize.css": "^8.0.1",
-    "sakura.css": "^1.0.0"
+    "@types/node": "^20.11.5",
+    "enquirer": "^2.4.1",
+    "execa": "^8.0.1",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3",
+    "vitepress": "^1.0.0-rc.39",
+    "vue": "^3.4.15",
+    "vue-tsc": "^1.8.27"
   }
 }

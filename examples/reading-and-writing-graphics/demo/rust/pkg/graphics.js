@@ -24,7 +24,7 @@ export function generate_checker_board(
   dark_value_blue,
   light_value_red,
   light_value_green,
-  light_value_blue
+  light_value_blue,
 ) {
   return wasm.generate_checker_board(
     dark_value_red,
@@ -32,7 +32,7 @@ export function generate_checker_board(
     dark_value_blue,
     light_value_red,
     light_value_green,
-    light_value_blue
+    light_value_blue,
   );
 }
 __exports.generate_checker_board = generate_checker_board;
@@ -48,22 +48,24 @@ function init(module) {
   ) {
     const response = fetch(module);
     if (typeof WebAssembly.instantiateStreaming === "function") {
-      result = WebAssembly.instantiateStreaming(response, imports).catch(e => {
-        console.warn(
-          "`WebAssembly.instantiateStreaming` failed. Assuming this is because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n",
-          e
-        );
-        return response
-          .then(r => r.arrayBuffer())
-          .then(bytes => WebAssembly.instantiate(bytes, imports));
-      });
+      result = WebAssembly.instantiateStreaming(response, imports).catch(
+        (e) => {
+          console.warn(
+            "`WebAssembly.instantiateStreaming` failed. Assuming this is because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n",
+            e,
+          );
+          return response
+            .then((r) => r.arrayBuffer())
+            .then((bytes) => WebAssembly.instantiate(bytes, imports));
+        },
+      );
     } else {
       result = response
-        .then(r => r.arrayBuffer())
-        .then(bytes => WebAssembly.instantiate(bytes, imports));
+        .then((r) => r.arrayBuffer())
+        .then((bytes) => WebAssembly.instantiate(bytes, imports));
     }
   } else {
-    result = WebAssembly.instantiate(module, imports).then(result => {
+    result = WebAssembly.instantiate(module, imports).then((result) => {
       if (result instanceof WebAssembly.Instance) {
         return { instance: result, module };
       } else {

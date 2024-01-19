@@ -9,7 +9,7 @@ const numberOfSamples = 1024;
 const audioBuffer = audioContext.createBuffer(
   2,
   numberOfSamples,
-  audioContext.sampleRate
+  audioContext.sampleRate,
 );
 
 // Create our originalAudioSamples, and our amplifiedAudioSamples Buffers
@@ -22,7 +22,7 @@ const amplifiedAudioSamples = new Float32Array(numberOfSamples);
 // https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer
 // Byte samples are represented as follows:
 // 127 is silence, 0 is negative max, 256 is positive max
-const floatSamplesToByteSamples = floatSamples => {
+const floatSamplesToByteSamples = (floatSamples) => {
   const byteSamples = new Uint8Array(floatSamples.length);
   for (let i = 0; i < floatSamples.length; i++) {
     const diff = floatSamples[i] * 127;
@@ -37,7 +37,7 @@ const floatSamplesToByteSamples = floatSamples => {
 // https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer
 // Byte samples are represented as follows:
 // 127 is silence, 0 is negative max, 256 is positive max
-const byteSamplesToFloatSamples = byteSamples => {
+const byteSamplesToFloatSamples = (byteSamples) => {
   const floatSamples = new Float32Array(byteSamples.length);
   for (let i = 0; i < byteSamples.length; i++) {
     const byteSample = byteSamples[i];
@@ -67,9 +67,8 @@ const runWasm = async () => {
 
   // Convert our float audio samples
   // to a byte format for demonstration purposes
-  const originalByteAudioSamples = floatSamplesToByteSamples(
-    originalAudioSamples
-  );
+  const originalByteAudioSamples =
+    floatSamplesToByteSamples(originalAudioSamples);
 
   // Fill our wasm memory with the converted Audio Samples,
   // And store it at our inputPointer location (index)
@@ -84,7 +83,7 @@ const runWasm = async () => {
   const outputPointer = rustWasm.get_output_buffer_pointer();
   const outputBuffer = wasmByteMemoryArray.slice(
     outputPointer,
-    outputPointer + numberOfSamples
+    outputPointer + numberOfSamples,
   );
 
   // Convert our amplified byte samples into float samples,

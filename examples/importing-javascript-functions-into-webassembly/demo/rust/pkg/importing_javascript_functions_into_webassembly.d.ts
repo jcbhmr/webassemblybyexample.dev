@@ -13,5 +13,5 @@ export function console_log_from_wasm(): void;
  * @returns {Promise<any>}
  */
 export default function init(
-  module_or_path: RequestInfo | BufferSource | WebAssembly.Module
+  module_or_path: RequestInfo | BufferSource | WebAssembly.Module,
 ): Promise<any>;

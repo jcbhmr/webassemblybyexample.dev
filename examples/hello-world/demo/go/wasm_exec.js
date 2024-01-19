@@ -22,7 +22,7 @@
     self.global = self;
   } else {
     throw new Error(
-      "cannot export Go (neither global, window nor self is defined)"
+      "cannot export Go (neither global, window nor self is defined)",
     );
   }
 
@@ -49,7 +49,7 @@
         O_CREAT: -1,
         O_TRUNC: -1,
         O_APPEND: -1,
-        O_EXCL: -1
+        O_EXCL: -1,
       }, // unused
       writeSync(fd, buf) {
         outputBuf += decoder.decode(buf);
@@ -136,7 +136,7 @@
       },
       utimes(path, atime, mtime, callback) {
         callback(enosys());
-      }
+      },
     };
   }
 
@@ -167,7 +167,7 @@
       },
       chdir() {
         throw enosys();
-      }
+      },
     };
   }
 
@@ -176,7 +176,7 @@
     global.crypto = {
       getRandomValues(b) {
         nodeCrypto.randomFillSync(b);
-      }
+      },
     };
   }
 
@@ -185,7 +185,7 @@
       now() {
         const [sec, nsec] = process.hrtime();
         return sec * 1000 + nsec / 1000000;
-      }
+      },
     };
   }
 
@@ -218,13 +218,13 @@
         mem().setUint32(addr + 4, Math.floor(v / 4294967296), true);
       };
 
-      const getInt64 = addr => {
+      const getInt64 = (addr) => {
         const low = mem().getUint32(addr + 0, true);
         const high = mem().getInt32(addr + 4, true);
         return low + high * 4294967296;
       };
 
-      const loadValue = addr => {
+      const loadValue = (addr) => {
         const f = mem().getFloat64(addr, true);
         if (f === 0) {
           return undefined;
@@ -314,7 +314,7 @@
 
       const loadString = (ptr, len) => {
         return decoder.decode(
-          new DataView(this._inst.exports.memory.buffer, ptr, len)
+          new DataView(this._inst.exports.memory.buffer, ptr, len),
         );
       };
 
@@ -322,7 +322,7 @@
       this.importObject = {
         wasi_unstable: {
           // https://github.com/bytecodealliance/wasmtime/blob/master/docs/WASI-api.md#__wasi_fd_write
-          fd_write: function(fd, iovs_ptr, iovs_len, nwritten_ptr) {
+          fd_write: function (fd, iovs_ptr, iovs_len, nwritten_ptr) {
             let nwritten = 0;
             if (fd == 1) {
               for (let iovs_i = 0; iovs_i < iovs_len; iovs_i++) {
@@ -350,7 +350,7 @@
             }
             mem().setUint32(nwritten_ptr, nwritten, true);
             return 0;
-          }
+          },
         },
         env: {
           // func ticks() float64
@@ -359,13 +359,13 @@
           },
 
           // func sleepTicks(timeout float64)
-          "runtime.sleepTicks": timeout => {
+          "runtime.sleepTicks": (timeout) => {
             // Do not sleep, only reactivate scheduler after the given timeout.
             setTimeout(this._inst.exports.go_scheduler, timeout);
           },
 
           // func finalizeRef(v ref)
-          "syscall/js.finalizeRef": sp => {
+          "syscall/js.finalizeRef": (sp) => {
             // Note: TinyGo does not support finalizers so this should never be
             // called.
             console.error("syscall/js.finalizeRef not implemented");
@@ -418,7 +418,7 @@
             m_len,
             args_ptr,
             args_len,
-            args_cap
+            args_cap,
           ) => {
             const v = loadValue(v_addr);
             const name = loadString(m_ptr, m_len);
@@ -439,7 +439,7 @@
             v_addr,
             args_ptr,
             args_len,
-            args_cap
+            args_cap,
           ) => {
             try {
               const v = loadValue(v_addr);
@@ -458,7 +458,7 @@
             v_addr,
             args_ptr,
             args_len,
-            args_cap
+            args_cap,
           ) => {
             const v = loadValue(v_addr);
             const args = loadSliceOfValues(args_ptr, args_len, args_cap);
@@ -472,7 +472,7 @@
           },
 
           // func valueLength(v ref) int
-          "syscall/js.valueLength": v_addr => {
+          "syscall/js.valueLength": (v_addr) => {
             return loadValue(v_addr).length;
           },
 
@@ -489,7 +489,7 @@
             v_addr,
             slice_ptr,
             slice_len,
-            slice_cap
+            slice_cap,
           ) => {
             const str = loadValue(v_addr);
             loadSlice(slice_ptr, slice_len, slice_cap).set(str);
@@ -506,7 +506,7 @@
             dest_addr,
             dest_len,
             dest_cap,
-            source_addr
+            source_addr,
           ) => {
             let num_bytes_copied_addr = ret_addr;
             let returned_status_addr = ret_addr + 4; // Address of returned boolean status variable
@@ -531,7 +531,7 @@
             dest_addr,
             source_addr,
             source_len,
-            source_cap
+            source_cap,
           ) => {
             let num_bytes_copied_addr = ret_addr;
             let returned_status_addr = ret_addr + 4; // Address of returned boolean status variable
@@ -546,8 +546,8 @@
             dst.set(toCopy);
             setInt64(num_bytes_copied_addr, toCopy.length);
             mem().setUint8(returned_status_addr, 1); // Return "ok" status
-          }
-        }
+          },
+        },
       };
     }
 
@@ -561,7 +561,7 @@
         true,
         false,
         global,
-        this
+        this,
       ];
       this._goRefCounts = []; // number of references that Go has to a JS value, indexed by reference id
       this._ids = new Map(); // mapping from JS values to reference ids
@@ -571,7 +571,7 @@
       const mem = new DataView(this._inst.exports.memory.buffer);
 
       while (true) {
-        const callbackPromise = new Promise(resolve => {
+        const callbackPromise = new Promise((resolve) => {
           this._resolveCallbackPromise = () => {
             if (this.exited) {
               throw new Error("bad callback: Go program has already exited");
@@ -599,7 +599,7 @@
 
     _makeFuncWrapper(id) {
       const go = this;
-      return function() {
+      return function () {
         const event = { id: id, this: this, args: arguments };
         go._pendingEvent = event;
         go._resume();
@@ -622,10 +622,10 @@
 
     const go = new Go();
     WebAssembly.instantiate(fs.readFileSync(process.argv[2]), go.importObject)
-      .then(result => {
+      .then((result) => {
         return go.run(result.instance);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         process.exit(1);
       });

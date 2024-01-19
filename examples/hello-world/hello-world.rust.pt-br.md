@@ -93,7 +93,7 @@ runWasm();
 Por último, vamos carregar o nosso Módulo ES6, o arquivo Javascript `index.js` no nosso `index.html`:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />

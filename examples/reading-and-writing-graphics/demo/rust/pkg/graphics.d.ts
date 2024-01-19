@@ -18,7 +18,7 @@ export function generate_checker_board(
   dark_value_blue: number,
   light_value_red: number,
   light_value_green: number,
-  light_value_blue: number
+  light_value_blue: number,
 ): void;
 
 /**
@@ -30,5 +30,5 @@ export function generate_checker_board(
  * @returns {Promise<any>}
  */
 export default function init(
-  module_or_path: RequestInfo | BufferSource | WebAssembly.Module
+  module_or_path: RequestInfo | BufferSource | WebAssembly.Module,
 ): Promise<any>;

@@ -23,7 +23,7 @@ const runWasm = async () => {
   const canvasContext = canvasElement.getContext("2d");
   const canvasImageData = canvasContext.createImageData(
     canvasElement.width,
-    canvasElement.height
+    canvasElement.height,
   );
 
   // Clear the canvas
@@ -47,14 +47,14 @@ const runWasm = async () => {
       getDarkValue(),
       getLightValue(),
       getLightValue(),
-      getLightValue()
+      getLightValue(),
     );
 
     // Pull out the RGBA values from Wasm memory, the we wrote to in wasm,
     // starting at the checkerboard pointer (memory array index)
     const imageDataArray = wasmByteMemoryArray.slice(
       exports.CHECKERBOARD_BUFFER_POINTER.valueOf(),
-      exports.CHECKERBOARD_BUFFER_SIZE.valueOf()
+      exports.CHECKERBOARD_BUFFER_SIZE.valueOf(),
     );
 
     // Set the values to the canvas image data

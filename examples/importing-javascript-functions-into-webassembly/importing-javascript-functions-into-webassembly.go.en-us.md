@@ -61,7 +61,7 @@ const runWasm = async () => {
   // depending on the compiler, usually in the format similar to below,
   // but you can check for the "LinkError: WebAssembly.instantiate()",
   // which would show the name required.
-  importObject.env["./main.go.jsPrintInt"] = value => console.log(value);
+  importObject.env["./main.go.jsPrintInt"] = (value) => console.log(value);
 
   // Instantiate our wasm module
   const wasmModule = await wasmBrowserInstantiate("./main.wasm", importObject);

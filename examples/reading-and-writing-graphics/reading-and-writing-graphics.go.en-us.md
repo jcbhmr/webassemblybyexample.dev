@@ -115,7 +115,7 @@ tinygo build -o main.wasm -target wasm ./main.go
 Then, let's create an `index.html`, and get our appropriate `wasm_exec.js` following the steps laid out in the [Hello World Example](/example-redirect?exampleName=hello-world) example. Also, we will add a canvas element so we can output the framebuffer that we will be rendering. **Random tip:** use the [image-rendering](https://css-tricks.com/almanac/properties/i/image-rendering/) property to display pixel art, and other "sharp" images correctly.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -174,7 +174,7 @@ const runWasm = async () => {
   const canvasContext = canvasElement.getContext("2d");
   const canvasImageData = canvasContext.createImageData(
     canvasElement.width,
-    canvasElement.height
+    canvasElement.height,
   );
 
   // Clear the canvas
@@ -198,14 +198,14 @@ const runWasm = async () => {
       getDarkValue(),
       getLightValue(),
       getLightValue(),
-      getLightValue()
+      getLightValue(),
     );
 
     // Pull out the RGBA values from Wasm memory, the we wrote to in wasm,
     // starting at the checkerboard pointer (memory array index)
     const imageDataArray = wasmByteMemoryArray.slice(
       graphicsBufferPointer,
-      graphicsBufferPointer + graphicsBufferSize
+      graphicsBufferPointer + graphicsBufferSize,
     );
 
     // Set the values to the canvas image data

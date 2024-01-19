@@ -38,7 +38,7 @@ Next, lets create an `index.js` file to load and run our wasm output. Now that w
 // to facilitate handle data passing between JS and Wasm.
 import wasmInit, {
   add_wasm_by_example_to_string,
-  test
+  test,
 } from "./pkg/strings.js";
 
 const runWasm = async () => {

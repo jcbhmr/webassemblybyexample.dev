@@ -51,7 +51,7 @@ Next, lets create an `index.js` file to load and run our wasm output. Let's impo
 const runWasm = async () => {
   // Instantiate our wasm module
   const rustWasm = await wasmInit(
-    "./pkg/importing_javascript_functions_into_webassembly_bg.wasm"
+    "./pkg/importing_javascript_functions_into_webassembly_bg.wasm",
   );
 
   // Run the exported function

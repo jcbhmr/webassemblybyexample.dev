@@ -21,7 +21,7 @@ export function generateCheckerBoard(
   darkValueBlue: i32,
   lightValueRed: i32,
   lightValueGreen: i32,
-  lightValueBlue: i32
+  lightValueBlue: i32,
 ): void {
   // Since Linear memory is a 1 dimensional array, but we want a grid
   // we will be doing 2d to 1d mapping
@@ -61,15 +61,15 @@ export function generateCheckerBoard(
       // Finally store the values.
       store<u8>(
         CHECKERBOARD_BUFFER_POINTER + squareRgbaIndex + 0,
-        squareValueRed
+        squareValueRed,
       ); // Red
       store<u8>(
         CHECKERBOARD_BUFFER_POINTER + squareRgbaIndex + 1,
-        squareValueGreen
+        squareValueGreen,
       ); // Green
       store<u8>(
         CHECKERBOARD_BUFFER_POINTER + squareRgbaIndex + 2,
-        squareValueBlue
+        squareValueBlue,
       ); // Blue
       store<u8>(CHECKERBOARD_BUFFER_POINTER + squareRgbaIndex + 3, 255); // Alpha (Always opaque)
     }

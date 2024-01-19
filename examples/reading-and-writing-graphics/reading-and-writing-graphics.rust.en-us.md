@@ -131,7 +131,7 @@ const runWasm = async () => {
   const canvasContext = canvasElement.getContext("2d");
   const canvasImageData = canvasContext.createImageData(
     canvasElement.width,
-    canvasElement.height
+    canvasElement.height,
   );
 
   // Clear the canvas
@@ -155,7 +155,7 @@ const runWasm = async () => {
       getDarkValue(),
       getLightValue(),
       getLightValue(),
-      getLightValue()
+      getLightValue(),
     );
 
     // Pull out the RGBA values from Wasm memory
@@ -164,7 +164,7 @@ const runWasm = async () => {
     const outputPointer = rustWasm.get_output_buffer_pointer();
     const imageDataArray = wasmByteMemoryArray.slice(
       outputPointer,
-      outputPointer + checkerBoardSize * checkerBoardSize * 4
+      outputPointer + checkerBoardSize * checkerBoardSize * 4,
     );
 
     // Set the values to the canvas image data

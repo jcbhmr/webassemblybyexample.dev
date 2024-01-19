@@ -45,8 +45,8 @@ export const wasmBrowserInstantiate = async (wasmModuleUrl, importObject) => {
   if (!importObject) {
     importObject = {
       env: {
-        abort: () => console.log("Abort!")
-      }
+        abort: () => console.log("Abort!"),
+      },
     };
   }
 
@@ -55,14 +55,14 @@ export const wasmBrowserInstantiate = async (wasmModuleUrl, importObject) => {
     // Fetch the module, and instantiate it as it is downloading
     response = await WebAssembly.instantiateStreaming(
       fetch(wasmModuleUrl),
-      importObject
+      importObject,
     );
   } else {
     // Fallback to using fetch to download the entire module
     // And then instantiate the module
     const fetchAndInstantiateTask = async () => {
-      const wasmArrayBuffer = await fetch(wasmModuleUrl).then(response =>
-        response.arrayBuffer()
+      const wasmArrayBuffer = await fetch(wasmModuleUrl).then((response) =>
+        response.arrayBuffer(),
       );
       return WebAssembly.instantiate(wasmArrayBuffer, importObject);
     };
@@ -92,7 +92,7 @@ runWasmAdd();
 Lastly, lets load our ES6 Module, `hello-world.js` Javascript file in our `index.html`:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />

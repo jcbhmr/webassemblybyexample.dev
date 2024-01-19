@@ -15,5 +15,5 @@ export function call_me_from_javascript(a: number, b: number): number;
  * @returns {Promise<any>}
  */
 export default function init(
-  module_or_path: RequestInfo | BufferSource | WebAssembly.Module
+  module_or_path: RequestInfo | BufferSource | WebAssembly.Module,
 ): Promise<any>;
