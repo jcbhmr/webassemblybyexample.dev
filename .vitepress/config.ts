@@ -36,7 +36,7 @@ export default defineConfig({
 
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
-    logo: "/favicon.ico",
+    logo: "/logo.png",
 
     // https://vitepress.dev/reference/default-theme-search#search
     // search: {

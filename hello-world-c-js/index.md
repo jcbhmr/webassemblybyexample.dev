@@ -14,4 +14,6 @@ clang \
 python -m http.server
 ```
 
-<<< ./index.html
+<<< ./index.js
+
+![](https://i.imgur.com/jG8gc6p.png)
