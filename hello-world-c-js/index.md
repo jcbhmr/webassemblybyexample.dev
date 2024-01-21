@@ -35,3 +35,5 @@ Now that we have our `hello_world.wasm` file lets write some JavaScript to provi
 Now we can start up an HTTP server with `python -m http.server` or your other favorite static HTTP server and see the results:
 
 ![](https://i.imgur.com/NGdhMdz.png)
+
+It's worth noting that **this is a demonstration** of how WebAssembly modules can pass strings to their higher level hosts. For real-world integrations it's a good idea to check out [wasm-pack](https://rustwasm.github.io/docs/wasm-pack/), [Emscripten](https://emscripten.org/), [the WebAssembly Component Model](https://github.com/WebAssembly/component-model), or other more complex tooling.

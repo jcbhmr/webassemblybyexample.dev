@@ -13,6 +13,11 @@ titleTemplate: false
 - [Fibonacci sequence in C via JavaScript](/fib-c-js/)
 - [Fibonacci sequence in Rust via JavaScript](/fib-rs-js/)
 - ["Hello world!" in C via JavaScript](/hello-world-c-js/)
+- ~~[Fibonacci sequence in C via Python with $X](#)~~
+- ~~[Fibonacci sequence in C via Rust with $X](#)~~
+- ~~[Fibonacci sequence in C via Java with $X](#)~~
+- ~~[Fibonacci sequence in Rust via C with $X](#)~~
+- ~~[Fibonacci sequence in Rust via C++ with $X](#)~~
 
 ### 👨‍💻 WASI
 
