@@ -1,0 +1,5 @@
+{
+  "name": "Use Rust in JavaScript through wasm-pack",
+  "workspaceFolder": "/workspaces/webassemblybyexample.dev/rs-js-wasm-pack",
+  "updateContentCommand": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && rustup target add wasm32-unknown-unknown && curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh",
+}

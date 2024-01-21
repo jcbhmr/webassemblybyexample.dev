@@ -3,7 +3,7 @@ import { h } from "vue";
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import "./style.css";
-import RunOnReplitButton from "./components/RunOnReplitButton.vue";
+import OpenInGitHubCodespacesButton from "./components/OpenInGitHubCodespacesButton.vue";
 
 export default {
   extends: DefaultTheme,
@@ -14,6 +14,6 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     // ...
-    app.component("RunOnReplitButton", RunOnReplitButton);
+    app.component("OpenInGitHubCodespacesButton", OpenInGitHubCodespacesButton);
   },
 } satisfies Theme;

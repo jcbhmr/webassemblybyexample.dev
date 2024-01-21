@@ -1,6 +1,6 @@
 # Fibonacci sequence in Rust via JavaScript
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1&devcontainer_path=.devcontainer%2Ffib-rs-js%2Fdevcontainer.json)
+<OpenInGitHubCodespacesButton slug="fib-rs-js" />
 
 We're going to compile some Rust code to WebAssembly and then run it in the browser! 🤩 Make sure that you have the `wasm32-unknown-unknown` target installed for your Rust toolchain. If you're using rustup you can use `rustup target add wasm32-unknown-unknown` to install the target.
 
@@ -16,7 +16,7 @@ Now that we have our Rust code written, there's one setting we need to tweak in 
 
 <<< ./Cargo.toml{7}
 
-🎗️ Make sure that you set the `crate-type = ["cdylib"]` option! This is required for generating WebAssembly.
+🎗️ Make sure that you set the `crate-type = ["cdylib"]` option! It signifies that you'd like the compiler to create a dynamic system library. For the WebAssembly target that means "create a `*.wasm` file without a start function". On other platforms this output type will create `_.so` file on Linux, `_.dylib` on macOS, and `_.dll` Windows.
 
 ✨ You can quickly create a new Cargo Rust project using `cargo new`.
 

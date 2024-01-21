@@ -9,6 +9,7 @@ titleTemplate: false
 
 ### 🚩 Basics
 
+- [Return 42 in WebAssembly Text Format via JavaScript](/42-wat-js/)
 - [Fibonacci sequence in C via JavaScript](/fib-c-js/)
 - [Fibonacci sequence in Rust via JavaScript](/fib-rs-js/)
 - ["Hello world!" in C via JavaScript](/hello-world-c-js/)
@@ -20,14 +21,16 @@ The [WebAssembly System Interface](https://wasi.dev/) (WASI) is a set of APIs fo
 - ["Hello WASI!" in Rust via JavaScript using @wasmer/sdk](/hello-wasip1-rs-js-wasmer-sdk/)
 - ~~[Compile C++ to WASI preview1](#)~~
 
-### 🧰 Language-specific tooling
+### 🧰 Specialized tooling
 
-- ~~[Use Rust in JavaScript through wasm-bindgen](#)~~
+- [Use Rust in JavaScript through wasm-pack](/rs-js-wasm-pack/)
 - ~~[Use C++ in JavaScript through Emscripten](#)~~
 - ~~[Use Go in JavaScript through GOOS=js](#)~~
 - ~~[Use AssemblyScript in JavaScript](#)~~
 
 ### 📦 WebAssembly component model
+
+The [WebAssembly Component Model](https://github.com/WebAssembly/component-model) is a broad-reaching architecture for building interoperable Wasm libraries, applications, and environments.
 
 - ~~[Create a WebAssembly component from Rust using cargo-component](#)~~
 - ~~[Create a WebAssembly component from JavaScript using jco](#)~~

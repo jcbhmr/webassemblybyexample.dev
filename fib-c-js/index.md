@@ -1,6 +1,6 @@
 # Fibonacci sequence in C via JavaScript
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1&devcontainer_path=.devcontainer%2Ffib-c-js%2Fdevcontainer.json)
+<OpenInGitHubCodespacesButton slug="fib-c-js" />
 
 We're going to compile C to WebAssembly with minimal imports (no [WASI](https://wasi.dev/)) using Clang and then run it in your browser. How cool is that? 🤩
 
