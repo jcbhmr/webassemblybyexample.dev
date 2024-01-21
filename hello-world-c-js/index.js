@@ -1,32 +1,51 @@
-const responseP = fetch("hello_world.wasm");
-const importObject = {};
-const { instance } = await WebAssembly.instantiateStreaming(
-  responseP,
-  importObject
-);
-const { hello_world, memory } = instance.exports;
+// 1. Load the binary contents of the WebAssembly file.
+///   If you were in Node.js you'd use 'fs.readFile()'.
+const response = await fetch("fib.wasm");
+const buffer = await response.arrayBuffer();
 
-/**
- * Converts a C-string in memory into a native JavaScript string
- */
-function liftString(memory, ptr) {
-  // First we interpret the raw memory as bytes.
+// 2. Compile the WebAssembly blob into a 'WebAssembly.Module'.
+//    This will throw an error if the buffer isn't valid WebAssembly.
+const module = await WebAssembly.compile(buffer);
+
+function print(pointer) {
+  const string = getString(memory, pointer);
+  console.log(string);
+}
+
+// 3. Instantiate the module with any imports. We need none.
+//    Normally you'd pass in things like a 'println()' function.
+const importObject = {};
+const instance = await WebAssembly.instantiate(module, importObject);
+
+// 4. Define a function to convert a C-string pointer into a JavaScript string.
+function getString(memory, pointer) {
+  // A) First we interpret the raw memory as bytes.
   const bytes = new Uint8Array(memory.buffer);
 
-  // We scan through the string until we see a '\0' (null) char.
-  let len = 0;
-  while (bytes[ptr + len]) len++;
+  // B) We scan through the string until we see a '\0' (null) char.
+  let length = 0;
+  while (true) {
+    // The '\0' char.
+    if (bytes[length] === 0) {
+      break;
+    } else {
+      length++;
+    }
+  }
 
-  // Then we get a 'Uint8Array' (excluding the '\0') of the string.
-  const chars = bytes.subarray(ptr, ptr + len);
+  // C) Then we select just that
+  const chars = bytes.subarray(pointer, pointer + length);
 
-  // And finally we decode those UTF-8 characters into a JavaScript string.
+  // D) And finally we decode those UTF-8 characters into a JavaScript string.
   return new TextDecoder().decode(chars);
 }
 
 // This is a pointer like '1234'
-const ptr = hello_world();
+const pointer = hello_world();
+console.log(pointer);
+
 // Then we convert that pointer to a C-string into a JavaScript string.
-const string = liftString(memory, ptr);
+const string = getString(memory, pointer);
+
 // Now we can say hi!
 console.log("hello_world():", string);

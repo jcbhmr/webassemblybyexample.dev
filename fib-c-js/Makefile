@@ -9,5 +9,8 @@ build:
 		-o fib.wasm \
 		fib.c
 
+setup:
+	command -v $(CC) || echo 'Please manually install $(CC)'
+
 preview:
 	python -m http.server

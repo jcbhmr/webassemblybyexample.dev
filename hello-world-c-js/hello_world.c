@@ -1,3 +1,6 @@
-char* hello_world() {
-    return "Hello world!";
+extern void print(char* message);
+
+int main() {
+    print("Hello world!");
+    return 0;
 }

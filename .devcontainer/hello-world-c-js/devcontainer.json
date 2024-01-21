@@ -1,0 +1,5 @@
+{
+  "name": "\"Hello world!\" in C via JavaScript",
+  "workspaceFolder": "/workspaces/webassemblybyexample.dev/hello-world-c-js",
+  "updateContentCommand": "sudo bash -c \"$(wget -O - https://apt.llvm.org/llvm.sh)\"",
+}
