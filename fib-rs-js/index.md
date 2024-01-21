@@ -1,6 +1,6 @@
 # Fibonacci sequence in Rust via JavaScript
 
-<OpenInGitHubCodespacesButton slug="fib-rs-js" />
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1&devcontainer_path=.devcontainer%2Ffib-rs-js%2Fdevcontainer.json)
 
 We're going to compile some Rust code to WebAssembly and then run it in the browser! 🤩 Make sure that you have the `wasm32-unknown-unknown` target installed for your Rust toolchain. If you're using rustup you can use `rustup target add wasm32-unknown-unknown` to install the target.
 

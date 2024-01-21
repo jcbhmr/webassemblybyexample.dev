@@ -1,6 +1,6 @@
 # Use Rust in JavaScript through wasm-pack
 
-<OpenInGitHubCodespacesButton slug="rs-js-wasm-pack" />
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1&devcontainer_path=.devcontainer%2Frs-js-wasm-pack%2Fdevcontainer.json)
 
 [wasm-pack](https://rustwasm.github.io/wasm-pack/) is a great tool that automagically lifts and lowers complex structs, enums, strings, etc. back and forth across the WebAssembly boundary using [wasm-bindgen](https://rustwasm.github.io/docs/wasm-bindgen/) via the `#[wasm_bindgen]` macro. It also can generate a self-contained npm package that you can use directly or distribute via [npmjs.com](https://www.npmjs.com/).
 

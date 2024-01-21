@@ -1,6 +1,6 @@
 # Return 42 in WebAssembly Text Format via JavaScript
 
-<OpenInGitHubCodespacesButton slug="42-wat-js" />
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1&devcontainer_path=.devcontainer%2F42-wat-js%2Fdevcontainer.json)
 
 To enable WebAssembly to be read and edited by humans, there is a textual representation of the Wasm binary format. This is an intermediate form designed to be exposed in text editors, browser developer tools, etc. This article explains how that text format works, in terms of the raw syntax, and how it is related to the underlying bytecode it represents — and the wrapper objects representing Wasm in JavaScript.
 

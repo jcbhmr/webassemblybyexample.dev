@@ -1,6 +1,6 @@
 # "Hello world!" in C via JavaScript
 
-<OpenInGitHubCodespacesButton slug="hello-world-c-js" />
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1&devcontainer_path=.devcontainer%2Fhello-world-c-js%2Fdevcontainer.json)
 
 After passing some numbers to-and-fro between JavaScript and WebAssembly it's time to take things to the next level in two ways: importing host functions in your WebAssembly code and passing more complex data (strings!) back-and-forth with your WebAssembly module. 😵
 

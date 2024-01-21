@@ -1,6 +1,6 @@
 # Use AssemblyScript in JavaScript
 
-<OpenInGitHubCodespacesButton slug="as-js" />
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1&devcontainer_path=.devcontainer%2Fas-js%2Fdevcontainer.json)
 
 <<< ./assembly/index.ts
 
