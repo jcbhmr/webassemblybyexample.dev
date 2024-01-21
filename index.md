@@ -13,11 +13,11 @@ titleTemplate: false
 - [Fibonacci sequence in Rust via JavaScript](/fib-rs-js/)
 - ["Hello world!" in C via JavaScript](/hello-world-c-js/)
 
-### 👨‍💻 WASI preview1
+### 👨‍💻 WASI
 
 The [WebAssembly System Interface](https://wasi.dev/) (WASI) is a set of APIs for WASI being developed for eventual standardization by the WASI Subgroup, which is a subgroup of the WebAssembly Community Group.
 
-- ["Hello WASI preview1!" in Rust via JavaScript using @wasmer/sdk](/hello-wasip1-rs-js-wasmer-sdk/)
+- ["Hello WASI!" in Rust via JavaScript using @wasmer/sdk](/hello-wasip1-rs-js-wasmer-sdk/)
 - ~~[Compile C++ to WASI preview1](#)~~
 
 ### 🧰 Language-specific tooling

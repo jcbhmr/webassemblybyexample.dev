@@ -1,4 +1,4 @@
-# "Hello WASI preview1!" in Rust via JavaScript using @wasmer/sdk
+# "Hello WASI!" in Rust via JavaScript using @wasmer/sdk
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jcbhmr/webassemblybyexample.dev?quickstart=1&devcontainer_path=.devcontainer%2Fhello-wasip1-rs-js-wasmer-sdk%2Fdevcontainer.json)
 

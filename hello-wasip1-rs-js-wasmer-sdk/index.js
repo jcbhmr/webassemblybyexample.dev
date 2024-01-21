@@ -4,7 +4,7 @@ await init();
 
 // 2. Load the binary contents of the WebAssembly file.
 ///   If you were in Node.js you'd use 'fs.readFile()'.
-const response = await fetch("target/wasm32-wasi/debug/hello-wasip1.wasm");
+const response = await fetch("target/wasm32-wasi/debug/hello-wasi.wasm");
 const buffer = await response.arrayBuffer();
 
 // 3. Compile the WebAssembly blob into a 'WebAssembly.Module'.
