@@ -17,35 +17,33 @@ titleTemplate: false
 
 The [WebAssembly System Interface](https://wasi.dev/) (WASI) is a set of APIs for WASI being developed for eventual standardization by the WASI Subgroup, which is a subgroup of the WebAssembly Community Group.
 
-- ["Hello WASI preview1!" in Rust via JavaScript using wasi-js](#)
-- [Compile Rust to WASI preview1](#)
-- [Compile C++ to WASI preview1](#)
-- [Run WASI preview1 in JavaScript with Wasmer](#)
+- ["Hello WASI preview1!" in Rust via JavaScript using @wasmer/sdk](/hello-wasip1-rs-js-wasmer-sdk/)
+- ~~[Compile C++ to WASI preview1](#)~~
 
 ### 🧰 Language-specific tooling
 
-- [Use Rust in JavaScript through wasm-bindgen](#)
-- [Use C++ in JavaScript through Emscripten](#)
-- [Use Go in JavaScript through GOOS=js](#)
-- [Use AssemblyScript in JavaScript](#)
+- ~~[Use Rust in JavaScript through wasm-bindgen](#)~~
+- ~~[Use C++ in JavaScript through Emscripten](#)~~
+- ~~[Use Go in JavaScript through GOOS=js](#)~~
+- ~~[Use AssemblyScript in JavaScript](#)~~
 
 ### 📦 WebAssembly component model
 
-- [Create a WebAssembly component from Rust using cargo-component](#)
-- [Create a WebAssembly component from JavaScript using jco](#)
-- [Compose WebAssembly components using wasm-tools](#)
-- [Use a WebAssembly component in JavaScript through jco](#)
-- [Use a WebAssembly component in Python with wasmtime](#)
-- [Use a WebAssembly component in Rust with wasmtime](#)
+- ~~[Create a WebAssembly component from Rust using cargo-component](#)~~
+- ~~[Create a WebAssembly component from JavaScript using jco](#)~~
+- ~~[Compose WebAssembly components using wasm-tools](#)~~
+- ~~[Use a WebAssembly component in JavaScript through jco](#)~~
+- ~~[Use a WebAssembly component in Python with wasmtime](#)~~
+- ~~[Use a WebAssembly component in Rust with wasmtime](#)~~
 
 ### ⚙️ Advanced
 
-- [Compile Rust to WASIX](#)
-- [Run WASIX in JavaScript with Wasmer](#)
-- [Compile Rust to 64-bit WebAssembly](#)
-- [Use SDL2 in C++ in JavaScript through Emscripten](#)
-- [Run WASI preview1 on Arduino with Wasm3](#)
-- [Write an HTTP endpoint in Rust with Wasmer](#)
+- ~~[Compile Rust to WASIX](#)~~
+- ~~[Run WASIX in JavaScript with Wasmer](#)~~
+- ~~[Compile Rust to 64-bit WebAssembly](#)~~
+- ~~[Use SDL2 in C++ in JavaScript through Emscripten](#)~~
+- ~~[Run WASI preview1 on Arduino with Wasm3](#)~~
+- ~~[Write an HTTP endpoint in Rust with Wasmer](#)~~
 
 <hr style="margin-top: 2.3em;" />
 

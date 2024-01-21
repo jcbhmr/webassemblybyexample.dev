@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "setup": "rustup target add wasm32-wasi",
+    "build": "cargo build --target wasm32-wasi",
+    "preview": "vite"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@wasmer/sdk": "~0.6.0",
+    "vite": "^5.0.12"
+  }
+}
