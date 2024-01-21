@@ -29,9 +29,10 @@ The [WebAssembly System Interface](https://wasi.dev/) (WASI) is a set of APIs fo
 ### 🧰 Specialized tooling
 
 - [Use Rust in JavaScript through wasm-pack](/rs-js-wasm-pack/)
+- [Use AssemblyScript in JavaScript](/as-js/)
 - ~~[Use C++ in JavaScript through Emscripten](#)~~
 - ~~[Use Go in JavaScript through GOOS=js](#)~~
-- ~~[Use AssemblyScript in JavaScript](#)~~
+- ~~[Write Rust web apps using trunk](#)~~
 
 ### 📦 WebAssembly component model
 

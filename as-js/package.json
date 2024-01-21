@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "asc assembly/index.ts --target debug",
+    "preview": "http-server -c-1"
+  },
+  "type": "module",
+  "devDependencies": {
+    "assemblyscript": "^0.27.23",
+    "http-server": "^14.1.1"
+  }
+}

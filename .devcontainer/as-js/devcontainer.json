@@ -1,0 +1,5 @@
+{
+  "name": "Use AssemblyScript in JavaScript",
+  "workspaceFolder": "/workspaces/webassemblybyexample.dev/as-js",
+  "postCreateCommand": "npm install",
+}

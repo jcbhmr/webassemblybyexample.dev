@@ -1,0 +1,12 @@
+{
+  "targets": {
+    "debug": {
+      "outFile": "out/mylib.wasm",
+      "sourceMap": true,
+      "debug": true
+    }
+  },
+  "options": {
+    "bindings": "esm"
+  }
+}
